@@ -1,6 +1,6 @@
 export default function Home() {
   const whatsappUrl =
-    "https://wa.me/573000000000?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20Vektora";
+    "https://wa.me/573105975861?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20Vektora";
 
   return (
     <main>
