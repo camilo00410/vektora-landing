@@ -26,7 +26,7 @@ const jsonLd = {
       ],
     },
     {
-      "@type": "LocalBusiness",
+      "@type": ["LocalBusiness", "ProfessionalService"],
       "@id": "https://vektora.lat/#localbusiness",
       name: "Vektora",
       description:
@@ -46,7 +46,13 @@ const jsonLd = {
         longitude: -75.6961,
       },
       areaServed: ["Colombia", "México", "Chile", "LATAM"],
-      priceRange: "$$",
+      image: "https://vektora.lat/og-image.png",
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "18:00",
+      },
     },
     {
       "@type": "Service",
@@ -57,6 +63,7 @@ const jsonLd = {
       provider: { "@id": "https://vektora.lat/#organization" },
       areaServed: "Colombia",
       serviceType: "Automatización de calificación de leads",
+      url: "https://vektora.lat/#que-hacemos",
     },
     {
       "@type": "Service",
@@ -67,6 +74,7 @@ const jsonLd = {
       provider: { "@id": "https://vektora.lat/#organization" },
       areaServed: "Colombia",
       serviceType: "Atención al cliente automatizada",
+      url: "https://vektora.lat/#que-hacemos",
     },
     {
       "@type": "Service",
@@ -77,6 +85,7 @@ const jsonLd = {
       provider: { "@id": "https://vektora.lat/#organization" },
       areaServed: "Colombia",
       serviceType: "Análisis documental automatizado",
+      url: "https://vektora.lat/#que-hacemos",
     },
     {
       "@type": "FAQPage",

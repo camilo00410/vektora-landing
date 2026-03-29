@@ -10,7 +10,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vektora.lat"),
-  title: "Vektora | Agentes de IA para Empresas en Colombia — Automatización Inteligente",
+  title: "Vektora | Agentes de IA para Empresas en Colombia",
   description:
     "Diseñamos e implementamos agentes de IA que automatizan procesos de negocio. Calificación de leads, atención al cliente, análisis documental. Pereira, Colombia.",
   keywords: [
