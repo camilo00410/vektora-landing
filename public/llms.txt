@@ -1,0 +1,37 @@
+# Vektora
+
+> Vektora es una empresa de agentes de IA con sede en Pereira, Colombia, especializada en automatización de procesos de negocio para empresas latinoamericanas.
+
+## Qué hacemos
+
+Diseñamos, implementamos y operamos agentes de inteligencia artificial que automatizan procesos repetitivos de negocio. Resultados medibles en 30 días.
+
+## Productos y servicios
+
+- **LeadBot**: Agente de IA para calificación de leads por WhatsApp. Dirigido a agencias de marketing. Califica leads en 2 minutos en lugar de 4 horas.
+- **ShopAssist**: Agente de IA para atención al cliente en e-commerce. Resuelve el 70% de consultas sin intervención humana.
+- **DocReview**: Agente de IA para análisis de contratos y documentos. Para firmas legales y contables. Analiza documentos en 5 minutos en lugar de 2 horas.
+
+## Cómo trabajamos
+
+1. **Analizamos**: Identificamos qué procesos automatizar con mayor impacto.
+2. **Diseñamos**: Creamos un agente de IA personalizado para el flujo de trabajo específico.
+3. **Implementamos**: Entregamos en 2–4 semanas con KPIs claros y métricas de éxito.
+
+## Información de contacto
+
+- **Sitio web**: https://vektora.lat
+- **Email**: info@vektora.lat
+- **WhatsApp**: +57 310 597 5861
+- **Ubicación**: Pereira, Risaralda, Colombia
+
+## Mercado objetivo
+
+Empresas B2B en Colombia (principalmente Pereira, Risaralda), con expansión a México y Chile. Sectores: agencias de marketing, e-commerce, firmas legales y contables.
+
+## Casos de uso
+
+- Automatización de calificación de leads
+- Atención al cliente 24/7 sin intervención humana
+- Revisión y análisis documental acelerado
+- Automatización de procesos repetitivos empresariales
