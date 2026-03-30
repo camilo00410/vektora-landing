@@ -29,6 +29,7 @@ const plans = [
     name: "Starter",
     price: "$3,000",
     currency: "USD · pago único",
+    priceCOP: "~$12.600.000 COP",
     tag: "Para empresas que empiezan con IA",
     color: "#6C63FF",
     featured: false,
@@ -40,13 +41,14 @@ const plans = [
       "Soporte 30 días post-lanzamiento",
       "Dashboard de métricas básico",
     ],
-    retainer: "Mantenimiento: $500 USD/mes (opcional)",
+    retainer: "Mantenimiento: $500 USD/mes (~$2.100.000 COP/mes) (opcional)",
     whatsapp: whatsappStarter,
   },
   {
     name: "Growth",
     price: "$7,500",
     currency: "USD · pago único",
+    priceCOP: "~$31.500.000 COP",
     tag: "El más elegido por medianas empresas",
     color: "#6C63FF",
     featured: true,
@@ -60,13 +62,14 @@ const plans = [
       "Optimización mensual incluida (3 meses)",
       "Integración con CRM existente",
     ],
-    retainer: "Mantenimiento: $1,000 USD/mes (incluye mejoras)",
+    retainer: "Mantenimiento: $1,000 USD/mes (~$4.200.000 COP/mes) (incluye mejoras)",
     whatsapp: whatsappGrowth,
   },
   {
     name: "Enterprise",
     price: "Desde $12,000",
     currency: "USD · a medida",
+    priceCOP: "Desde ~$50.400.000 COP",
     tag: "Para operaciones complejas y equipos grandes",
     color: "#00D9A6",
     featured: false,
@@ -80,7 +83,7 @@ const plans = [
       "Gerente de cuenta dedicado",
       "Personalización completa de flujos",
     ],
-    retainer: "Retainer mensual desde $2,000 USD",
+    retainer: "Retainer mensual desde $2,000 USD (~$8.400.000 COP/mes)",
     whatsapp: whatsappEnterprise,
   },
 ];
@@ -182,8 +185,11 @@ export default function PreciosPage() {
               >
                 {plan.price}
               </p>
-              <p className="text-sm mb-6" style={{ color: plan.featured ? "#aaa" : "#999" }}>
+              <p className="text-sm" style={{ color: plan.featured ? "#aaa" : "#999" }}>
                 {plan.currency}
+              </p>
+              <p className="text-sm font-medium mb-6" style={{ color: plan.featured ? "#00D9A6" : "#6C63FF" }}>
+                {plan.priceCOP}
               </p>
 
               <ul className="space-y-2 flex-1 mb-6">

@@ -121,7 +121,7 @@ const jsonLd = {
           name: "¿Cuánto cuesta automatizar mi empresa con IA?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Nuestros proyectos de implementación van desde $3,000 USD hasta $15,000 USD dependiendo de la complejidad. También ofrecemos retainers mensuales de mantenimiento y mejora continua desde $500 USD/mes.",
+            text: "Nuestros proyectos de implementación van desde $3,000 USD (~$12.600.000 COP) hasta $15,000 USD (~$63.000.000 COP) dependiendo de la complejidad. También ofrecemos retainers mensuales de mantenimiento y mejora continua desde $500 USD/mes (~$2.100.000 COP/mes).",
           },
         },
         {
@@ -176,7 +176,7 @@ const faqs = [
   },
   {
     q: "¿Cuánto cuesta automatizar mi empresa?",
-    a: "Los proyectos van desde $3,000 USD hasta $15,000 USD según la complejidad. También ofrecemos retainers mensuales de mantenimiento desde $500 USD/mes.",
+    a: "Los proyectos van desde $3,000 USD (~$12.600.000 COP) hasta $15,000 USD (~$63.000.000 COP) según la complejidad. También ofrecemos retainers mensuales de mantenimiento desde $500 USD/mes (~$2.100.000 COP/mes).",
     cta: true,
   },
   {

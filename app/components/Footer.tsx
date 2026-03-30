@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const whatsappUrl =
   "https://wa.me/573105975861?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20Vektora";
@@ -8,8 +9,14 @@ export function Footer() {
     <footer style={{ backgroundColor: "#1A1A2E" }} className="px-6 py-10">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start justify-between gap-8">
         <div>
-          <Link href="/" className="text-white text-lg font-bold block mb-1">
-            <span style={{ color: "#6C63FF" }}>vek</span>tora
+          <Link href="/" className="block mb-1">
+            <Image
+              src="/logo-vektora.png"
+              alt="Vektora — AI Agents Studio"
+              width={120}
+              height={34}
+              className="h-8 w-auto"
+            />
           </Link>
           <address className="text-gray-500 text-xs not-italic">
             Pereira, Risaralda, Colombia

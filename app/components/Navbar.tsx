@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -25,8 +26,15 @@ export function Navbar() {
       className="sticky top-0 z-50 px-6 py-4"
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between">
-        <Link href="/" className="text-white text-xl font-bold tracking-tight">
-          <span style={{ color: "#6C63FF" }}>vek</span>tora
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo-vektora.png"
+            alt="Vektora — AI Agents Studio"
+            width={140}
+            height={40}
+            priority
+            className="h-9 w-auto"
+          />
         </Link>
 
         {/* Desktop nav */}
