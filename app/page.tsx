@@ -1,4 +1,5 @@
 import Script from "next/script";
+import Image from "next/image";
 
 const whatsappUrl =
   "https://wa.me/573105975861?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20Vektora";
@@ -104,7 +105,7 @@ const jsonLd = {
           name: "¿Cuánto cuesta automatizar mi empresa con IA?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Nuestros proyectos de implementación van desde $3,000 USD hasta $15,000 USD dependiendo de la complejidad. También ofrecemos retainers mensuales de mantenimiento y mejora continua desde $500 USD/mes.",
+            text: "Nuestros proyectos de implementación van desde $800 USD ($3.400.000 COP) hasta $4.000 USD ($16.800.000 COP). Todos los paquetes incluyen retainer mensual obligatorio desde $250 USD/mes ($1.050.000/mes COP), que cubre actualizaciones, soporte y mejoras continuas.",
           },
         },
         {
@@ -143,7 +144,7 @@ const faqs = [
   },
   {
     q: "¿Cuánto cuesta automatizar mi empresa?",
-    a: "Los proyectos van desde $3,000 USD hasta $15,000 USD según la complejidad. También ofrecemos retainers mensuales de mantenimiento desde $500 USD/mes.",
+    a: "Los proyectos van desde $800 USD ($3.400.000 COP) hasta $4.000 USD ($16.800.000 COP) según la complejidad. Todos los paquetes incluyen retainer mensual obligatorio desde $250 USD/mes ($1.050.000/mes COP), que cubre actualizaciones, soporte y mejoras continuas.",
   },
   {
     q: "¿Hay empresas de IA en Pereira?",
@@ -156,6 +157,52 @@ const faqs = [
   {
     q: "¿Trabajan con empresas fuera de Pereira?",
     a: "Sí. Tenemos sede en Pereira pero trabajamos con empresas en toda Colombia, México y Chile. Operamos 100% remoto.",
+  },
+];
+
+const plans = [
+  {
+    name: "Starter",
+    implUsd: "$800",
+    implCop: "$3.400.000",
+    retainerUsd: "$250/mes",
+    retainerCop: "$1.050.000/mes",
+    retainerIncludes: [
+      "Mantenimiento del agente",
+      "Soporte WhatsApp",
+      "2 ajustes menores/mes",
+    ],
+    highlight: false,
+  },
+  {
+    name: "Growth",
+    implUsd: "$2.000",
+    implCop: "$8.400.000",
+    retainerUsd: "$500/mes",
+    retainerCop: "$2.100.000/mes",
+    retainerIncludes: [
+      "Todo Starter +",
+      "Dashboard de métricas",
+      "Optimización mensual",
+      "5 ajustes/mes",
+      "Soporte prioritario",
+    ],
+    highlight: true,
+  },
+  {
+    name: "Enterprise",
+    implUsd: "$4.000",
+    implCop: "$16.800.000",
+    retainerUsd: "$800/mes",
+    retainerCop: "$3.360.000/mes",
+    retainerIncludes: [
+      "Todo Growth +",
+      "Reportes ejecutivos",
+      "SLA 24 horas",
+      "Ajustes ilimitados",
+      "Mejoras continuas",
+    ],
+    highlight: false,
   },
 ];
 
@@ -172,11 +219,30 @@ export default function Home() {
         {/* ── NAV ── */}
         <nav
           style={{ backgroundColor: "#1A1A2E" }}
-          className="sticky top-0 z-50 px-6 py-4 flex items-center justify-between"
+          className="sticky top-0 z-50 px-6 py-3 flex items-center justify-between"
         >
-          <span className="text-white text-xl font-bold tracking-tight">
-            <span style={{ color: "#6C63FF" }}>vek</span>tora
-          </span>
+          <a href="/" aria-label="Vektora inicio">
+            {/* Desktop: wordmark */}
+            <Image
+              src="/logo.svg"
+              alt="Vektora - AI Agents Studio"
+              width={240}
+              height={75}
+              priority
+              className="hidden sm:block"
+              style={{ width: "240px", height: "auto" }}
+            />
+            {/* Mobile: icon only */}
+            <Image
+              src="/logo-icon.svg"
+              alt="Vektora"
+              width={52}
+              height={52}
+              priority
+              className="block sm:hidden"
+              style={{ width: "52px", height: "52px" }}
+            />
+          </a>
           <a
             href={whatsappUrl}
             target="_blank"
@@ -193,12 +259,17 @@ export default function Home() {
           style={{ backgroundColor: "#1A1A2E" }}
           className="px-6 py-24 md:py-36 text-center"
         >
-          <p
-            style={{ color: "#00D9A6" }}
-            className="text-sm font-semibold uppercase tracking-widest mb-4 animate-fade-in-up"
-          >
-            AI Agents Studio · Pereira, Colombia
-          </p>
+          {/* Large logo in hero */}
+          <div className="flex justify-center mb-10 animate-fade-in-up">
+            <Image
+              src="/logo.svg"
+              alt="Vektora - AI Agents Studio"
+              width={380}
+              height={119}
+              priority
+              style={{ width: "clamp(260px, 40vw, 380px)", height: "auto" }}
+            />
+          </div>
           <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight mb-6 max-w-3xl mx-auto animate-fade-in-up-delay-1">
             Agentes de IA que trabajan por ti
           </h1>
@@ -341,16 +412,116 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── QUIÉNES SOMOS ── */}
-        <section style={{ backgroundColor: "#F8F9FA" }} className="px-6 py-20">
-          <div className="max-w-3xl mx-auto text-center">
+        {/* ── PRECIOS ── */}
+        <section id="precios" style={{ backgroundColor: "#F8F9FA" }} className="px-6 py-20">
+          <div className="max-w-5xl mx-auto">
             <h2
               style={{ color: "#1A1A2E" }}
-              className="text-3xl md:text-4xl font-bold mb-6"
+              className="text-3xl md:text-4xl font-bold text-center mb-4"
+            >
+              Precios
+            </h2>
+            <p className="text-center text-gray-500 mb-4 max-w-xl mx-auto">
+              Inversión única de implementación + retainer mensual obligatorio.
+            </p>
+            <p className="text-center text-sm mb-14 max-w-xl mx-auto" style={{ color: "#6C63FF" }}>
+              ⚡ El retainer mensual es obligatorio en todos los paquetes — incluye actualizaciones, mejoras, soporte y mantenimiento continuo.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {plans.map((plan) => (
+                <div
+                  key={plan.name}
+                  className={`rounded-2xl p-8 border flex flex-col ${
+                    plan.highlight
+                      ? "border-[#6C63FF] bg-[#1A1A2E] shadow-xl scale-105"
+                      : "border-gray-200 bg-white shadow-sm"
+                  }`}
+                >
+                  {plan.highlight && (
+                    <p
+                      style={{ backgroundColor: "#6C63FF" }}
+                      className="text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full text-center mb-4 self-start"
+                    >
+                      Más popular
+                    </p>
+                  )}
+                  <h3
+                    className={`text-2xl font-bold mb-6 ${plan.highlight ? "text-white" : ""}`}
+                    style={plan.highlight ? {} : { color: "#1A1A2E" }}
+                  >
+                    {plan.name}
+                  </h3>
+
+                  {/* Implementation fee */}
+                  <div className={`mb-6 pb-6 border-b ${plan.highlight ? "border-white/10" : "border-gray-100"}`}>
+                    <p className={`text-xs font-semibold uppercase tracking-widest mb-2 ${plan.highlight ? "text-gray-400" : "text-gray-500"}`}>
+                      Implementación
+                    </p>
+                    <p className={`text-4xl font-extrabold ${plan.highlight ? "text-white" : ""}`} style={plan.highlight ? {} : { color: "#1A1A2E" }}>
+                      {plan.implUsd}
+                      <span className={`text-base font-semibold ${plan.highlight ? "text-gray-400" : "text-gray-400"}`}> USD</span>
+                    </p>
+                    <p className={`text-sm mt-1 ${plan.highlight ? "text-gray-400" : "text-gray-500"}`}>
+                      {plan.implCop} COP
+                    </p>
+                  </div>
+
+                  {/* Monthly retainer */}
+                  <div className="mb-6">
+                    <p className={`text-xs font-semibold uppercase tracking-widest mb-2 ${plan.highlight ? "text-[#00D9A6]" : ""}`} style={plan.highlight ? {} : { color: "#6C63FF" }}>
+                      Retainer mensual (obligatorio)
+                    </p>
+                    <p className={`text-3xl font-extrabold ${plan.highlight ? "text-white" : ""}`} style={plan.highlight ? {} : { color: "#1A1A2E" }}>
+                      {plan.retainerUsd}
+                      <span className={`text-sm font-semibold ${plan.highlight ? "text-gray-400" : "text-gray-400"}`}> USD</span>
+                    </p>
+                    <p className={`text-sm mt-1 ${plan.highlight ? "text-gray-400" : "text-gray-500"}`}>
+                      {plan.retainerCop} COP
+                    </p>
+                  </div>
+
+                  {/* Retainer includes */}
+                  <ul className="space-y-2 flex-1">
+                    {plan.retainerIncludes.map((item) => (
+                      <li key={item} className={`flex items-start gap-2 text-sm ${plan.highlight ? "text-gray-300" : "text-gray-600"}`}>
+                        <span style={{ color: plan.highlight ? "#00D9A6" : "#6C63FF" }} className="mt-0.5 shrink-0">✓</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`mt-8 block text-center font-semibold px-6 py-3 rounded-xl transition-all duration-150 hover:opacity-90 active:scale-95 ${
+                      plan.highlight
+                        ? "bg-[#6C63FF] text-white"
+                        : "bg-[#EEF0FF] text-[#6C63FF]"
+                    }`}
+                  >
+                    Empezar →
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-center text-gray-500 text-sm mt-10">
+              Precios en USD y COP (TRM referencia). · Implementación única + retainer mensual recurrente. · Proyectos personalizados disponibles.
+            </p>
+          </div>
+        </section>
+
+        {/* ── QUIÉNES SOMOS ── */}
+        <section style={{ backgroundColor: "#1A1A2E" }} className="px-6 py-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2
+              className="text-white text-3xl md:text-4xl font-bold mb-6"
             >
               Quiénes somos
             </h2>
-            <p style={{ color: "#2D2D2D" }} className="text-lg leading-relaxed mb-6">
+            <p style={{ color: "#D1D5DB" }} className="text-lg leading-relaxed mb-6">
               Somos un equipo de ingenieros y estrategas de IA con sede en{" "}
               <strong>Pereira, Risaralda, Colombia</strong>. Creamos Vektora
               para acercar la inteligencia artificial a las empresas
@@ -380,18 +551,18 @@ export default function Home() {
         </section>
 
         {/* ── FAQ ── */}
-        <section style={{ backgroundColor: "#1A1A2E" }} className="px-6 py-20">
+        <section style={{ backgroundColor: "#F8F9FA" }} className="px-6 py-20">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-white text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 style={{ color: "#1A1A2E" }} className="text-3xl md:text-4xl font-bold text-center mb-12">
               Preguntas frecuentes
             </h2>
             <div className="space-y-4">
               {faqs.map(({ q, a }, i) => (
                 <details
                   key={i}
-                  className="rounded-xl border border-white/10 bg-white/5 group"
+                  className="rounded-xl border border-gray-200 bg-white group"
                 >
-                  <summary className="flex items-center justify-between gap-4 px-6 py-5 text-white font-semibold select-none">
+                  <summary className="flex items-center justify-between gap-4 px-6 py-5 font-semibold select-none cursor-pointer" style={{ color: "#1A1A2E" }}>
                     <span>{q}</span>
                     <span
                       style={{ color: "#6C63FF" }}
@@ -400,7 +571,7 @@ export default function Home() {
                       +
                     </span>
                   </summary>
-                  <p className="px-6 pb-5 text-gray-300 leading-relaxed">{a}</p>
+                  <p className="px-6 pb-5 text-gray-600 leading-relaxed">{a}</p>
                 </details>
               ))}
             </div>
@@ -434,9 +605,14 @@ export default function Home() {
         <footer style={{ backgroundColor: "#1A1A2E" }} className="px-6 py-10">
           <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <span className="text-white text-lg font-bold block mb-1">
-                <span style={{ color: "#6C63FF" }}>vek</span>tora
-              </span>
+              <Image
+                src="/logo.svg"
+                alt="Vektora - AI Agents Studio"
+                width={200}
+                height={63}
+                style={{ width: "200px", height: "auto" }}
+                className="mb-2"
+              />
               <address className="text-gray-500 text-xs not-italic">
                 Pereira, Risaralda, Colombia
               </address>
