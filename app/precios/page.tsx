@@ -22,6 +22,8 @@ const whatsappEnterprise =
   "https://wa.me/573105975861?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Enterprise";
 const whatsappGeneral =
   "https://wa.me/573105975861?text=Hola%2C%20quiero%20un%20presupuesto%20para%20mi%20empresa";
+const whatsappDiagnostico =
+  "https://wa.me/573105975861?text=Hola%2C%20quiero%20agendar%20mi%20diagn%C3%B3stico%20gratuito";
 
 const plans = [
   {
@@ -289,6 +291,87 @@ export default function PreciosPage() {
             Agenda un diagnóstico gratuito →
           </a>
         </p>
+      </section>
+
+      {/* Servicios personalizados */}
+      <section style={{ backgroundColor: "#1A1A2E" }} className="px-6 py-20">
+        <div className="max-w-4xl mx-auto">
+          <p style={{ color: "#00D9A6" }} className="text-sm font-semibold uppercase tracking-widest mb-3 text-center">
+            Servicios personalizados
+          </p>
+          <h2 className="text-white text-3xl font-bold text-center mb-4">
+            Automatización hecha para tu empresa, no para cualquiera
+          </h2>
+          <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">
+            No todos los procesos son iguales. Por eso cobramos según la complejidad real de la solución — y empezamos siempre con un diagnóstico gratuito para que sepas exactamente qué necesitas antes de invertir un peso.
+          </p>
+
+          {/* Custom pricing table */}
+          <div className="overflow-x-auto rounded-2xl border border-white/10 mb-8">
+            <table className="w-full text-sm">
+              <thead>
+                <tr style={{ backgroundColor: "#6C63FF" }}>
+                  <th className="px-6 py-4 text-left text-white font-bold">Servicio</th>
+                  <th className="px-6 py-4 text-left text-white font-bold">Inversión</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  {
+                    service: "Diagnóstico de automatización",
+                    price: "Gratis",
+                    highlight: true,
+                  },
+                  {
+                    service: "Agente personalizado — Simple",
+                    price: "$1,000–$1,500 USD ($4.2M–$6.3M COP) + retainer $300 USD/mes",
+                    highlight: false,
+                  },
+                  {
+                    service: "Agente personalizado — Complejo",
+                    price: "$2,500–$4,000 USD ($10.5M–$16.8M COP) + retainer $500–$800 USD/mes",
+                    highlight: false,
+                  },
+                  {
+                    service: "Suite personalizada (3+ agentes)",
+                    price: "Cotización según alcance",
+                    highlight: false,
+                  },
+                ].map(({ service, price, highlight }, i) => (
+                  <tr
+                    key={i}
+                    className="border-t border-white/10"
+                    style={{ backgroundColor: highlight ? "rgba(0,217,166,0.08)" : "rgba(255,255,255,0.03)" }}
+                  >
+                    <td className="px-6 py-4 font-semibold" style={{ color: highlight ? "#00D9A6" : "#fff" }}>
+                      {service}
+                    </td>
+                    <td className="px-6 py-4" style={{ color: highlight ? "#00D9A6" : "#ccc" }}>
+                      {highlight ? <strong>{price}</strong> : price}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="text-gray-500 text-sm text-center mb-8">
+            Todos los precios incluyen diseño, desarrollo, integración y acompañamiento en lanzamiento. ·{" "}
+            ¿No sabes qué nivel necesitas? La mayoría de nuestros clientes recupera la inversión en menos de 3 meses.
+          </p>
+
+          <div className="text-center">
+            <a
+              href={whatsappDiagnostico}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ backgroundColor: "#00D9A6", color: "#1A1A2E" }}
+              className="inline-block font-bold px-8 py-4 rounded-xl hover:opacity-90 active:scale-95 transition-all duration-150"
+            >
+              Agenda tu diagnóstico gratuito →
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* FAQ */}

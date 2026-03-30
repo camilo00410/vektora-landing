@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Servicios de Agentes IA | Vektora — LeadBot, ShopAssist, DocReview",
+  title: "Servicios de Agentes IA | Vektora — LeadBot, ShopAssist, DocReview, Optimización Personalizada",
   description:
-    "Conoce nuestros agentes de IA: LeadBot para calificación de leads, ShopAssist para atención al cliente en e-commerce y DocReview para análisis de documentos. Pereira, Colombia.",
+    "Conoce nuestros agentes de IA: LeadBot, ShopAssist, DocReview y servicio de Optimización Personalizada con diagnóstico gratuito. Automatización para empresas en Colombia y LATAM.",
   alternates: { canonical: "https://vektora.lat/servicios" },
   openGraph: {
     title: "Servicios de Agentes IA | Vektora",
     description:
-      "Agentes especializados en calificación de leads, atención al cliente y análisis documental para empresas en Colombia y LATAM.",
+      "Agentes especializados y optimización personalizada para empresas en Colombia y LATAM. Diagnóstico gratuito disponible.",
     url: "https://vektora.lat/servicios",
   },
 };
@@ -22,6 +22,8 @@ const whatsappDocReview =
   "https://wa.me/573105975861?text=Hola%2C%20me%20interesa%20DocReview";
 const whatsappCustom =
   "https://wa.me/573105975861?text=Hola%2C%20quiero%20automatizar%20mi%20proceso";
+const whatsappOptimizacion =
+  "https://wa.me/573105975861?text=Hola%2C%20quiero%20agendar%20mi%20diagn%C3%B3stico%20gratuito";
 
 const services = [
   {
@@ -209,23 +211,87 @@ export default function ServiciosPage() {
         </div>
       </section>
 
-      {/* Custom CTA */}
-      <section style={{ backgroundColor: "#1A1A2E" }} className="px-6 py-16 text-center">
-        <h2 className="text-white text-2xl md:text-3xl font-bold mb-4">
-          ¿Tu proceso no está en la lista?
-        </h2>
-        <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-          Diseñamos agentes personalizados para cualquier flujo de trabajo. Cuéntanos qué quieres automatizar.
-        </p>
-        <a
-          href={whatsappCustom}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ backgroundColor: "#6C63FF" }}
-          className="inline-block text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 active:scale-95 transition-all duration-150"
-        >
-          Cuéntanos tu proceso →
-        </a>
+      {/* Optimización Personalizada */}
+      <section id="optimizacion" style={{ backgroundColor: "#1A1A2E" }} className="px-6 py-20">
+        <div className="max-w-5xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <p style={{ color: "#00D9A6" }} className="text-sm font-semibold uppercase tracking-widest mb-4">
+              Optimización Personalizada
+            </p>
+            <h2 className="text-white text-3xl md:text-4xl font-bold leading-tight mb-6 max-w-3xl mx-auto">
+              ¿Cuántas horas pierde tu equipo en tareas que debería hacer una máquina?
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              En Vektora analizamos tu operación, identificamos los cuellos de botella y diseñamos agentes de IA a medida que trabajan 24/7 sin errores y sin excusas.
+            </p>
+          </div>
+
+          {/* 3-step flow */}
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
+            {[
+              {
+                num: "01",
+                title: "Diagnóstico gratuito",
+                desc: "Agendamos una sesión de 45 minutos contigo. Mapeamos tus procesos y te decimos exactamente qué se puede automatizar — sin compromiso.",
+              },
+              {
+                num: "02",
+                title: "Diseño de la solución",
+                desc: "Nuestro equipo construye el agente o suite de agentes pensados para tu negocio: integraciones con tus sistemas, flujos a tu medida, pruebas reales antes del lanzamiento.",
+              },
+              {
+                num: "03",
+                title: "Implementación y soporte",
+                desc: "Desplegamos, entrenamos a tu equipo y te acompañamos mes a mes. Tú te enfocas en crecer, nosotros mantenemos que todo funcione.",
+              },
+            ].map(({ num, title, desc }) => (
+              <div key={num} className="rounded-2xl border border-white/10 bg-white/5 p-8">
+                <p style={{ color: "#6C63FF" }} className="text-4xl font-extrabold mb-4">{num}</p>
+                <h3 className="text-white text-xl font-bold mb-3">{title}</h3>
+                <p className="text-gray-400 leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Automatable processes */}
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 mb-12">
+            <h3 className="text-white text-xl font-bold mb-6 text-center">Procesos que automatizamos</h3>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                { icon: "🧾", text: "Facturación y cobro manual — generación automática, recordatorios y conciliación." },
+                { icon: "💬", text: "Atención a clientes por múltiples canales — WhatsApp, email y web unificados." },
+                { icon: "📊", text: "Entrada de datos en hojas de cálculo — captura, validación y carga automática." },
+                { icon: "📦", text: "Seguimiento de pedidos e inventario — alertas en tiempo real y reposición automática." },
+                { icon: "📈", text: "Generación de reportes repetitivos — informes semanales/mensuales sin tocar una celda." },
+                { icon: "🚀", text: "Onboarding de clientes y empleados — flujo guiado y activación automática." },
+                { icon: "📅", text: "Programación de citas — agendamiento 24/7 con confirmaciones y recordatorios." },
+                { icon: "📧", text: "Clasificación de emails y mensajes — priorización, etiquetado y respuestas automáticas." },
+                { icon: "✅", text: "Aprobaciones y flujos internos — notificaciones, escalado y registro de decisiones." },
+                { icon: "🔄", text: "Seguimiento postventa y renovaciones — alertas de vencimiento y upsell automatizado." },
+              ].map(({ icon, text }) => (
+                <div key={icon} className="flex items-start gap-3 text-sm text-gray-300">
+                  <span className="text-xl shrink-0">{icon}</span>
+                  <span>{text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center">
+            <a
+              href={whatsappOptimizacion}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ backgroundColor: "#00D9A6", color: "#1A1A2E" }}
+              className="inline-block font-bold text-lg px-10 py-4 rounded-xl hover:opacity-90 active:scale-95 transition-all duration-150 shadow-lg"
+            >
+              Agenda tu diagnóstico gratuito →
+            </a>
+            <p className="text-gray-500 text-sm mt-3">Disponible por WhatsApp. Sin costo, sin compromiso.</p>
+          </div>
+        </div>
       </section>
     </>
   );

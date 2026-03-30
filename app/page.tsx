@@ -387,6 +387,28 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── OPTIMIZACIÓN PERSONALIZADA ── */}
+        <section style={{ backgroundColor: "#1A1A2E" }} className="px-6 py-16">
+          <div className="max-w-3xl mx-auto text-center">
+            <p style={{ color: "#00D9A6" }} className="text-sm font-semibold uppercase tracking-widest mb-3">
+              Nuevo servicio
+            </p>
+            <h2 className="text-white text-2xl md:text-3xl font-bold mb-4">
+              ¿Tu operación depende demasiado de personas haciendo lo mismo una y otra vez?
+            </h2>
+            <p className="text-gray-400 mb-8 max-w-xl mx-auto">
+              Diseñamos agentes de IA a medida para automatizar los procesos manuales que frenan tu crecimiento. Empieza con un diagnóstico gratuito.
+            </p>
+            <Link
+              href="/servicios#optimizacion"
+              style={{ backgroundColor: "#6C63FF" }}
+              className="inline-block text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 active:scale-95 transition-all duration-150"
+            >
+              Conoce el servicio →
+            </Link>
+          </div>
+        </section>
+
         {/* ── CÓMO FUNCIONA ── */}
         <section
           id="proceso"
