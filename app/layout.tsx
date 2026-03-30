@@ -12,18 +12,22 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vektora.lat"),
-  title: "Vektora | Agentes de IA para Empresas en Colombia",
+  title: "Agencia de Inteligencia Artificial B2B en Colombia | Vektora",
   description:
-    "Diseñamos e implementamos agentes de IA que automatizan procesos de negocio. Calificación de leads, atención al cliente, análisis documental. Pereira, Colombia.",
+    "Automatiza tu empresa con agentes de IA a medida. Vektora es la agencia de IA B2B en Colombia que ayuda a empresas a crecer con chatbots, automatización de procesos y soluciones personalizadas. Agenda una demo.",
   keywords: [
-    "agentes de IA Colombia",
+    "agencia inteligencia artificial Colombia",
+    "agencia IA B2B Colombia",
+    "automatización procesos empresas Colombia",
+    "chatbots empresariales Colombia",
+    "agentes IA Colombia",
+    "automatizar empresa inteligencia artificial",
+    "inteligencia artificial pymes Colombia",
+    "chatbot WhatsApp empresas",
     "automatización empresarial Pereira",
     "empresa de IA Pereira",
-    "automatizar procesos empresa Colombia",
     "agentes inteligentes LATAM",
     "inteligencia artificial Risaralda",
-    "automatización de procesos Colombia",
-    "AI agency Colombia",
   ],
   authors: [{ name: "Vektora", url: "https://vektora.lat" }],
   creator: "Vektora",

@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Contacto | Vektora — Agentes de IA en Pereira, Colombia",
+  title: "Contacto — Habla con Nuestros Especialistas en IA | Vektora",
   description:
-    "Contáctanos por WhatsApp, email o agenda una llamada. Estamos en Pereira, Colombia y atendemos toda LATAM. Diagnóstico gratuito sin compromiso.",
+    "¿Listo para automatizar tu empresa con IA? Escríbenos o agenda una llamada con nuestro equipo. WhatsApp: +57 310 597 5861 | info@vektora.lat",
   alternates: { canonical: "https://vektora.lat/contacto" },
   openGraph: {
-    title: "Contacto | Vektora",
+    title: "Contacto — Habla con Nuestros Especialistas en IA | Vektora",
     description:
-      "Agenda un diagnóstico gratuito con el equipo de Vektora. WhatsApp, email o llamada.",
+      "¿Listo para automatizar tu empresa con IA? Escríbenos o agenda una llamada con nuestro equipo. WhatsApp: +57 310 597 5861 | info@vektora.lat",
     url: "https://vektora.lat/contacto",
   },
 };
@@ -49,6 +49,48 @@ const contactMethods = [
   },
 ];
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vektora.lat" },
+    { "@type": "ListItem", "position": 2, "name": "Contacto", "item": "https://vektora.lat/contacto" }
+  ]
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Vektora",
+  description: "Agencia de inteligencia artificial B2B en Pereira, Colombia. Especializados en agentes IA y automatización de procesos para empresas latinoamericanas.",
+  url: "https://vektora.lat",
+  telephone: "+573105975861",
+  email: "info@vektora.lat",
+  image: "https://vektora.lat/og-image.png",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Pereira",
+    addressRegion: "Risaralda",
+    addressCountry: "CO",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 4.8133,
+    longitude: -75.6961,
+  },
+  areaServed: ["Colombia", "México", "Chile", "LATAM"],
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "18:00",
+  },
+  sameAs: [
+    "https://linkedin.com/company/vektora",
+    "https://instagram.com/vektora.lat",
+  ],
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
@@ -85,6 +127,14 @@ export default function ContactoPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <Breadcrumbs items={[{ label: "Contacto" }]} />

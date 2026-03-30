@@ -240,8 +240,8 @@ export default function Home() {
             IA para empresas · Pereira · Colombia
           </p>
           <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight mb-6 max-w-3xl mx-auto animate-fade-in-up-delay-1">
-            Automatiza lo que te quita tiempo.{" "}
-            <span style={{ color: "#00D9A6" }}>Resultados en 30 días.</span>
+            Agencia de Inteligencia Artificial para{" "}
+            <span style={{ color: "#00D9A6" }}>Empresas en Colombia</span>
           </h1>
           <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-8 animate-fade-in-up-delay-2">
             Diseñamos e implementamos agentes de IA que atienden leads, responden
@@ -260,11 +260,33 @@ export default function Home() {
             Solicita tu diagnóstico gratis
             <span aria-hidden>→</span>
           </a>
-          <p className="text-sm text-gray-500 mt-4 flex flex-wrap gap-4 justify-center animate-fade-in-up-delay-3">
-            <span>✓ Sin costo</span>
-            <span>✓ Sin compromiso</span>
-            <span>✓ Respuesta en 24h</span>
+          <div className="flex flex-wrap gap-3 justify-center mt-6">
+            {[
+              "Resultados medibles en 30 días",
+              "Implementación en 2–4 semanas",
+              "Sin contratos de largo plazo"
+            ].map((pill) => (
+              <span key={pill} className="inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full border" style={{ backgroundColor: "rgba(0,217,166,0.1)", borderColor: "rgba(0,217,166,0.3)", color: "#00D9A6" }}>
+                <span>✓</span> {pill}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* Tech integrations marquee */}
+        <section style={{ backgroundColor: "#0F0F23" }} className="py-10 overflow-hidden">
+          <p className="text-center text-gray-500 text-xs uppercase tracking-widest mb-6 px-4">
+            Integramos con las herramientas que ya usas
           </p>
+          <div className="relative flex overflow-hidden">
+            <div className="animate-marquee flex gap-12 items-center shrink-0">
+              {["WhatsApp", "HubSpot", "Shopify", "Slack", "Zapier", "Make", "OpenAI", "Google Sheets", "Calendly", "Stripe", "Notion", "Airtable", "WhatsApp", "HubSpot", "Shopify", "Slack", "Zapier", "Make", "OpenAI", "Google Sheets", "Calendly", "Stripe", "Notion", "Airtable"].map((tool, i) => (
+                <span key={i} className="text-gray-500 font-semibold text-sm whitespace-nowrap hover:text-gray-300 transition-colors duration-300">
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* ── QUÉ HACEMOS / SERVICIOS ── */}
@@ -274,7 +296,7 @@ export default function Home() {
               style={{ color: "#1A1A2E" }}
               className="text-3xl md:text-4xl font-bold text-center mb-4"
             >
-              Automatizamos lo que te quita tiempo
+              Automatiza tu empresa con agentes IA a medida
             </h2>
             <p className="text-center text-gray-500 mb-14 max-w-xl mx-auto">
               Agentes especializados en los cuellos de botella más comunes: leads

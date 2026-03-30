@@ -77,60 +77,58 @@ export function Navbar() {
             Agenda demo →
           </a>
 
-          {/* Hamburger */}
+          {/* Hamburger with CSS animation */}
           <button
             onClick={() => setOpen(!open)}
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={open}
-            className="md:hidden text-white p-1"
+            className="md:hidden text-white p-1 flex flex-col justify-center items-center w-8 h-8 gap-1.5"
           >
-            {open ? (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            ) : (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="18" x2="21" y2="18" />
-              </svg>
-            )}
+            <span
+              className="block h-0.5 w-6 bg-white transition-all duration-300 origin-center"
+              style={{ transform: open ? "rotate(45deg) translateY(8px)" : "none" }}
+            />
+            <span
+              className="block h-0.5 w-6 bg-white transition-all duration-300"
+              style={{ opacity: open ? 0 : 1, transform: open ? "scaleX(0)" : "none" }}
+            />
+            <span
+              className="block h-0.5 w-6 bg-white transition-all duration-300 origin-center"
+              style={{ transform: open ? "rotate(-45deg) translateY(-8px)" : "none" }}
+            />
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {open && (
-        <div
-          style={{ backgroundColor: "#1A1A2E" }}
-          className="md:hidden border-t border-white/10 mt-4 pt-4 pb-2"
-        >
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => setOpen(false)}
-              className={`block px-2 py-3 text-sm transition-colors ${
-                pathname === href
-                  ? "text-white font-semibold"
-                  : "text-gray-300 hover:text-white"
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ backgroundColor: "#6C63FF" }}
-            className="mt-3 w-full block text-center text-white text-sm font-semibold px-4 py-3 rounded-lg"
+      {/* Mobile menu with smooth animation */}
+      <div
+        style={{ backgroundColor: "#1A1A2E" }}
+        className={`md:hidden border-t border-white/10 overflow-hidden transition-all duration-300 ease-in-out ${open ? "max-h-96 opacity-100 mt-4 pt-4 pb-2" : "max-h-0 opacity-0"}`}
+      >
+        {navLinks.map(({ href, label }) => (
+          <Link
+            key={href}
+            href={href}
+            onClick={() => setOpen(false)}
+            className={`block px-2 py-3 text-sm transition-colors ${
+              pathname === href
+                ? "text-white font-semibold"
+                : "text-gray-300 hover:text-white"
+            }`}
           >
-            Agenda demo →
-          </a>
-        </div>
-      )}
+            {label}
+          </Link>
+        ))}
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ backgroundColor: "#6C63FF" }}
+          className="mt-3 w-full block text-center text-white text-sm font-semibold px-4 py-3 rounded-lg"
+        >
+          Agenda demo →
+        </a>
+      </div>
     </nav>
   );
 }

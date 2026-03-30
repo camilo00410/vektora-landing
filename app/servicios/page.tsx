@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Servicios de Agentes IA | Vektora — LeadBot, ShopAssist, DocReview, Optimización Personalizada",
+  title: "Servicios de Inteligencia Artificial para Empresas | Vektora",
   description:
-    "Conoce nuestros agentes de IA: LeadBot, ShopAssist, DocReview y servicio de Optimización Personalizada con diagnóstico gratuito. Automatización para empresas en Colombia y LATAM.",
+    "Chatbots empresariales, agentes IA personalizados y automatización de procesos. Soluciones de inteligencia artificial B2B para empresas colombianas. Conoce cómo trabajamos.",
   alternates: { canonical: "https://vektora.lat/servicios" },
   openGraph: {
-    title: "Servicios de Agentes IA | Vektora",
+    title: "Servicios de Inteligencia Artificial para Empresas | Vektora",
     description:
-      "Agentes especializados y optimización personalizada para empresas en Colombia y LATAM. Diagnóstico gratuito disponible.",
+      "Chatbots empresariales, agentes IA personalizados y automatización de procesos. Soluciones de inteligencia artificial B2B para empresas colombianas.",
     url: "https://vektora.lat/servicios",
   },
 };
@@ -100,6 +100,15 @@ const services = [
   },
 ];
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vektora.lat" },
+    { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://vektora.lat/servicios" }
+  ]
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -122,6 +131,10 @@ export default function ServiciosPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <Breadcrumbs items={[{ label: "Servicios" }]} />

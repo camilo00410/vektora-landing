@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Precios de Agentes IA | Vektora — Planes y Paquetes",
+  title: "Planes y Precios — Agencia de IA para Empresas | Vektora",
   description:
-    "Planes de implementación de agentes IA desde $800 USD ($3.400.000 COP). Paquetes Starter, Growth y Enterprise con retainer mensual obligatorio. Sin costos ocultos. Pereira, Colombia.",
+    "Proyectos de IA desde $3K hasta $15K y retainers mensuales desde $500. Conoce nuestros planes de automatización con inteligencia artificial para empresas colombianas.",
   alternates: { canonical: "https://vektora.lat/precios" },
   openGraph: {
-    title: "Precios | Vektora — Automatización con IA",
+    title: "Planes y Precios — Agencia de IA para Empresas | Vektora",
     description:
-      "Implementación de agentes IA desde $800 USD ($3.400.000 COP). Elige el plan que se adapta a tu empresa.",
+      "Proyectos de IA desde $3K hasta $15K y retainers mensuales desde $500. Conoce nuestros planes de automatización con inteligencia artificial para empresas colombianas.",
     url: "https://vektora.lat/precios",
   },
 };
@@ -141,12 +141,68 @@ const jsonLd = {
   url: "https://vektora.lat/precios",
 };
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vektora.lat" },
+    { "@type": "ListItem", "position": 2, "name": "Precios", "item": "https://vektora.lat/precios" }
+  ]
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta implementar inteligencia artificial en una empresa colombiana?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El costo de implementación varía entre $800 USD ($3.400.000 COP) y $4.000 USD ($16.800.000 COP) dependiendo del alcance. Para soporte continuo, ofrecemos retainers desde $250 USD/mes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué incluye un proyecto de automatización con IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Incluye diagnóstico de procesos, diseño del agente IA, desarrollo e integración con tus sistemas, pruebas y capacitación del equipo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El precio incluye el costo de las APIs como OpenAI o WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Los costos de APIs de terceros (OpenAI, WhatsApp Business API) se cobran por separado según el uso real. En el diagnóstico gratuito estimamos estos costos para tu caso específico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo empezar con Starter y hacer upgrade después?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Muchos de nuestros clientes empiezan con Starter para validar el impacto y luego escalan a Growth o Enterprise. El retainer mensual cubre actualizaciones y el upgrade es flexible."
+      }
+    }
+  ]
+};
+
 export default function PreciosPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <Breadcrumbs items={[{ label: "Precios" }]} />

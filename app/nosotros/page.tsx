@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Nosotros | Vektora — Agencia de IA en Pereira, Colombia",
+  title: "Quiénes Somos — Agencia de IA B2B en Pereira, Colombia | Vektora",
   description:
-    "Conoce al equipo de Vektora: ingenieros y estrategas de IA con sede en Pereira, Colombia. Nuestra misión es hacer accesible la automatización con IA para empresas latinoamericanas.",
+    "Somos Vektora, la agencia de inteligencia artificial en Pereira, Colombia. Especializados en agentes IA y automatización B2B para empresas latinoamericanas.",
   alternates: { canonical: "https://vektora.lat/nosotros" },
   openGraph: {
-    title: "Nosotros | Vektora",
+    title: "Quiénes Somos — Agencia de IA B2B en Pereira, Colombia | Vektora",
     description:
-      "Ingenieros y estrategas de IA con sede en Pereira, Colombia. Automatizamos procesos de negocio para empresas en LATAM.",
+      "Somos Vektora, la agencia de inteligencia artificial en Pereira, Colombia. Especializados en agentes IA y automatización B2B para empresas latinoamericanas.",
     url: "https://vektora.lat/nosotros",
   },
 };
@@ -47,6 +47,15 @@ const stats = [
   { value: "30", label: "Días a primeros resultados" },
 ];
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vektora.lat" },
+    { "@type": "ListItem", "position": 2, "name": "Nosotros", "item": "https://vektora.lat/nosotros" }
+  ]
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
@@ -73,6 +82,10 @@ export default function NosotrosPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <Breadcrumbs items={[{ label: "Nosotros" }]} />
