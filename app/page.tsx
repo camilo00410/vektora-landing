@@ -1,8 +1,24 @@
 import Script from "next/script";
-import Image from "next/image";
+import Link from "next/link";
+import { AnimatedStep } from "./components/AnimatedStep";
 
 const whatsappUrl =
   "https://wa.me/573105975861?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20Vektora";
+
+const whatsappLeadBot =
+  "https://wa.me/573105975861?text=Hola%2C%20me%20interesa%20LeadBot";
+
+const whatsappShopAssist =
+  "https://wa.me/573105975861?text=Hola%2C%20me%20interesa%20ShopAssist";
+
+const whatsappDocReview =
+  "https://wa.me/573105975861?text=Hola%2C%20me%20interesa%20DocReview";
+
+const whatsappCustom =
+  "https://wa.me/573105975861?text=Hola%2C%20quiero%20automatizar%20mi%20proceso";
+
+const whatsappPresupuesto =
+  "https://wa.me/573105975861?text=Hola%2C%20quiero%20un%20presupuesto%20para%20mi%20empresa";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -64,7 +80,7 @@ const jsonLd = {
       provider: { "@id": "https://vektora.lat/#organization" },
       areaServed: "Colombia",
       serviceType: "Automatización de calificación de leads",
-      url: "https://vektora.lat/#que-hacemos",
+      url: "https://vektora.lat/#servicios",
     },
     {
       "@type": "Service",
@@ -75,7 +91,7 @@ const jsonLd = {
       provider: { "@id": "https://vektora.lat/#organization" },
       areaServed: "Colombia",
       serviceType: "Atención al cliente automatizada",
-      url: "https://vektora.lat/#que-hacemos",
+      url: "https://vektora.lat/#servicios",
     },
     {
       "@type": "Service",
@@ -86,7 +102,7 @@ const jsonLd = {
       provider: { "@id": "https://vektora.lat/#organization" },
       areaServed: "Colombia",
       serviceType: "Análisis documental automatizado",
-      url: "https://vektora.lat/#que-hacemos",
+      url: "https://vektora.lat/#servicios",
     },
     {
       "@type": "FAQPage",
@@ -110,15 +126,15 @@ const jsonLd = {
         },
         {
           "@type": "Question",
-          name: "¿Hay empresas de IA en Pereira?",
+          name: "¿Qué pasa si el agente comete un error?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Sí. Vektora es una empresa de agentes de IA con sede en Pereira, Risaralda, Colombia. Somos especialistas en automatización de procesos de negocio para empresas colombianas y latinoamericanas.",
+            text: "Todos nuestros agentes tienen supervisión humana configurable. Puedes establecer umbrales de confianza: si el agente no está seguro, escala automáticamente a tu equipo. Nunca actúa de forma autónoma en decisiones críticas.",
           },
         },
         {
           "@type": "Question",
-          name: "¿En cuánto tiempo ven resultados mis clientes?",
+          name: "¿Cuánto tiempo tarda la implementación?",
           acceptedAnswer: {
             "@type": "Answer",
             text: "La implementación tarda entre 2 y 4 semanas. Desde el primer día de operación del agente se observan métricas de mejora. La mayoría de nuestros clientes ven resultados medibles en los primeros 30 días.",
@@ -130,6 +146,22 @@ const jsonLd = {
           acceptedAnswer: {
             "@type": "Answer",
             text: "Sí. Aunque tenemos sede en Pereira, Colombia, trabajamos con empresas en toda Colombia, México y Chile. Operamos 100% remoto.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "¿Necesito saber de tecnología para trabajar con ustedes?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. Nosotros gestionamos toda la implementación técnica. Tu equipo solo necesita revisar y aprobar los flujos antes del lanzamiento. La mayoría de nuestros clientes no tienen equipo de TI propio.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "¿Con qué plataformas integran?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "WhatsApp Business, Gmail/Google Workspace, HubSpot, Notion, Google Sheets, y cualquier sistema con API. Si usas una plataforma específica, consulta — lo más probable es que ya tengamos conector.",
           },
         },
       ],
@@ -145,10 +177,11 @@ const faqs = [
   {
     q: "¿Cuánto cuesta automatizar mi empresa?",
     a: "Los proyectos van desde $800 USD ($3.400.000 COP) hasta $4.000 USD ($16.800.000 COP) según la complejidad. Todos los paquetes incluyen retainer mensual obligatorio desde $250 USD/mes ($1.050.000/mes COP), que cubre actualizaciones, soporte y mejoras continuas.",
+    cta: true,
   },
   {
-    q: "¿Hay empresas de IA en Pereira?",
-    a: "Sí. Vektora tiene sede en Pereira, Risaralda, Colombia. Somos especialistas en automatización de procesos con IA para empresas colombianas y latinoamericanas.",
+    q: "¿Qué pasa si el agente comete un error?",
+    a: "Todos nuestros agentes tienen supervisión humana configurable. Puedes establecer umbrales de confianza: si el agente no está seguro, escala automáticamente a tu equipo. Nunca actúa de forma autónoma en decisiones críticas.",
   },
   {
     q: "¿Cuánto tiempo tarda la implementación?",
@@ -158,53 +191,33 @@ const faqs = [
     q: "¿Trabajan con empresas fuera de Pereira?",
     a: "Sí. Tenemos sede en Pereira pero trabajamos con empresas en toda Colombia, México y Chile. Operamos 100% remoto.",
   },
+  {
+    q: "¿Necesito saber de tecnología para trabajar con ustedes?",
+    a: "No. Nosotros gestionamos toda la implementación técnica. Tu equipo solo necesita revisar y aprobar los flujos antes del lanzamiento. La mayoría de nuestros clientes no tienen equipo de TI propio.",
+  },
+  {
+    q: "¿Con qué plataformas integran?",
+    a: "WhatsApp Business, Gmail/Google Workspace, HubSpot, Notion, Google Sheets, y cualquier sistema con API. Si usas una plataforma específica, consulta — lo más probable es que ya tengamos conector.",
+  },
 ];
 
-const plans = [
+const steps = [
   {
-    name: "Starter",
-    implUsd: "$800",
-    implCop: "$3.400.000",
-    retainerUsd: "$250/mes",
-    retainerCop: "$1.050.000/mes",
-    retainerIncludes: [
-      "Mantenimiento del agente",
-      "Soporte WhatsApp",
-      "2 ajustes menores/mes",
-    ],
-    highlight: false,
+    step: "01",
+    title: "Analizamos",
+    desc: "Analizamos tu operación e identificamos qué automatizar con mayor impacto.",
   },
   {
-    name: "Growth",
-    implUsd: "$2.000",
-    implCop: "$8.400.000",
-    retainerUsd: "$500/mes",
-    retainerCop: "$2.100.000/mes",
-    retainerIncludes: [
-      "Todo Starter +",
-      "Dashboard de métricas",
-      "Optimización mensual",
-      "5 ajustes/mes",
-      "Soporte prioritario",
-    ],
-    highlight: true,
+    step: "02",
+    title: "Diseñamos",
+    desc: "Diseñamos un agente de IA personalizado para tu flujo de trabajo específico.",
   },
   {
-    name: "Enterprise",
-    implUsd: "$4.000",
-    implCop: "$16.800.000",
-    retainerUsd: "$800/mes",
-    retainerCop: "$3.360.000/mes",
-    retainerIncludes: [
-      "Todo Growth +",
-      "Reportes ejecutivos",
-      "SLA 24 horas",
-      "Ajustes ilimitados",
-      "Mejoras continuas",
-    ],
-    highlight: false,
+    step: "03",
+    title: "Implementamos",
+    desc: "Implementamos en 2–4 semanas con KPIs claros y métricas de éxito definidas.",
   },
-];
+] as const;
 
 export default function Home() {
   return (
@@ -215,101 +228,62 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <main>
-        {/* ── NAV ── */}
-        <nav
-          style={{ backgroundColor: "#1A1A2E" }}
-          className="sticky top-0 z-50 px-6 py-3 flex items-center justify-between"
-        >
-          <a href="/" aria-label="Vektora inicio">
-            {/* Desktop: wordmark */}
-            <Image
-              src="/logo.svg"
-              alt="Vektora - AI Agents Studio"
-              width={240}
-              height={75}
-              priority
-              className="hidden sm:block"
-              style={{ width: "240px", height: "auto" }}
-            />
-            {/* Mobile: icon only */}
-            <Image
-              src="/logo-icon.svg"
-              alt="Vektora"
-              width={52}
-              height={52}
-              priority
-              className="block sm:hidden"
-              style={{ width: "52px", height: "52px" }}
-            />
-          </a>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ backgroundColor: "#6C63FF" }}
-            className="text-white text-sm font-semibold px-4 py-2 rounded-lg hover:opacity-90 active:scale-95 transition-all duration-150"
-          >
-            Agenda demo →
-          </a>
-        </nav>
-
         {/* ── HERO ── */}
         <section
           style={{ backgroundColor: "#1A1A2E" }}
           className="px-6 py-24 md:py-36 text-center"
         >
-          {/* Large logo in hero */}
-          <div className="flex justify-center mb-10 animate-fade-in-up">
-            <Image
-              src="/logo.svg"
-              alt="Vektora - AI Agents Studio"
-              width={380}
-              height={119}
-              priority
-              style={{ width: "clamp(260px, 40vw, 380px)", height: "auto" }}
-            />
-          </div>
-          <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight mb-6 max-w-3xl mx-auto animate-fade-in-up-delay-1">
-            Agentes de IA que trabajan por ti
-          </h1>
-          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-4 animate-fade-in-up-delay-2">
-            Diseñamos, implementamos y operamos agentes inteligentes que
-            automatizan los procesos repetitivos de tu empresa.{" "}
-            <span style={{ color: "#00D9A6" }} className="font-semibold">
-              Resultados medibles en 30 días.
-            </span>
+          <p
+            style={{ color: "#00D9A6" }}
+            className="text-sm font-semibold uppercase tracking-widest mb-4 animate-fade-in-up"
+          >
+            IA para empresas · Pereira · Colombia
           </p>
-          <p className="text-gray-500 text-sm mb-10 animate-fade-in-up-delay-2">
-            Empresa de automatización con IA en Pereira, Risaralda — atendemos toda Colombia, México y Chile
+          <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight mb-6 max-w-3xl mx-auto animate-fade-in-up-delay-1">
+            Automatiza lo que te quita tiempo.{" "}
+            <span style={{ color: "#00D9A6" }}>Resultados en 30 días.</span>
+          </h1>
+          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-8 animate-fade-in-up-delay-2">
+            Diseñamos e implementamos agentes de IA que atienden leads, responden
+            clientes y revisan documentos — sin contratar más personal.
           </p>
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ backgroundColor: "#6C63FF" }}
-            className="inline-block text-white text-lg font-semibold px-8 py-4 rounded-xl hover:opacity-90 active:scale-95 transition-all duration-150 shadow-lg animate-fade-in-up-delay-3"
+            className="inline-flex items-center gap-2 text-white text-lg font-semibold px-8 py-4 rounded-xl active:scale-95 transition-all duration-200 shadow-lg animate-fade-in-up-delay-3"
+            style={{
+              backgroundColor: "#6C63FF",
+              boxShadow: "0 8px 30px rgba(108,99,255,0.3)",
+            }}
           >
-            Agenda tu demo gratuita →
+            Solicita tu diagnóstico gratis
+            <span aria-hidden>→</span>
           </a>
+          <p className="text-sm text-gray-500 mt-4 flex flex-wrap gap-4 justify-center animate-fade-in-up-delay-3">
+            <span>✓ Sin costo</span>
+            <span>✓ Sin compromiso</span>
+            <span>✓ Respuesta en 24h</span>
+          </p>
         </section>
 
-        {/* ── QUÉ HACEMOS ── */}
-        <section style={{ backgroundColor: "#F8F9FA" }} className="px-6 py-20">
+        {/* ── QUÉ HACEMOS / SERVICIOS ── */}
+        <section id="servicios" style={{ backgroundColor: "#F8F9FA" }} className="px-6 py-20">
           <div className="max-w-5xl mx-auto">
             <h2
               style={{ color: "#1A1A2E" }}
               className="text-3xl md:text-4xl font-bold text-center mb-4"
             >
-              ¿Qué hacemos?
+              Automatizamos lo que te quita tiempo
             </h2>
             <p className="text-center text-gray-500 mb-14 max-w-xl mx-auto">
-              Agentes de IA especializados para los retos más comunes de las
-              empresas latinoamericanas.
+              Agentes especializados en los cuellos de botella más comunes: leads
+              sin calificar, clientes sin respuesta, documentos acumulados.
             </p>
 
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="rounded-2xl p-8 border border-gray-200 bg-white shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+              {/* LeadBot */}
+              <div className="rounded-2xl p-8 border border-gray-200 bg-white shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col">
                 <div
                   style={{ backgroundColor: "#EEF0FF", color: "#6C63FF" }}
                   className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-6"
@@ -322,13 +296,24 @@ export default function Home() {
                 <p className="text-gray-500 text-sm mb-4">
                   Para agencias de marketing
                 </p>
-                <p style={{ color: "#2D2D2D" }}>
+                <p style={{ color: "#2D2D2D" }} className="flex-1">
                   Califica leads por WhatsApp en{" "}
                   <strong>2 minutos</strong>, no en 4 horas.
                 </p>
+                <a
+                  href={whatsappLeadBot}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center text-sm font-semibold transition-colors group"
+                  style={{ color: "#6C63FF" }}
+                >
+                  Quiero este para mi empresa
+                  <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+                </a>
               </div>
 
-              <div className="rounded-2xl p-8 border border-gray-200 bg-white shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+              {/* ShopAssist */}
+              <div className="rounded-2xl p-8 border border-gray-200 bg-white shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col">
                 <div
                   style={{ backgroundColor: "#E0FBF5", color: "#00D9A6" }}
                   className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-6"
@@ -339,13 +324,24 @@ export default function Home() {
                   ShopAssist
                 </h3>
                 <p className="text-gray-500 text-sm mb-4">Para e-commerce</p>
-                <p style={{ color: "#2D2D2D" }}>
+                <p style={{ color: "#2D2D2D" }} className="flex-1">
                   Resuelve el <strong>70% de consultas</strong> de tu e-commerce
                   sin intervención humana.
                 </p>
+                <a
+                  href={whatsappShopAssist}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center text-sm font-semibold transition-colors group"
+                  style={{ color: "#00D9A6" }}
+                >
+                  Quiero este para mi empresa
+                  <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+                </a>
               </div>
 
-              <div className="rounded-2xl p-8 border border-gray-200 bg-white shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+              {/* DocReview */}
+              <div className="rounded-2xl p-8 border border-gray-200 bg-white shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col">
                 <div
                   style={{ backgroundColor: "#EEF0FF", color: "#6C63FF" }}
                   className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-6"
@@ -358,211 +354,137 @@ export default function Home() {
                 <p className="text-gray-500 text-sm mb-4">
                   Para firmas legales y contables
                 </p>
-                <p style={{ color: "#2D2D2D" }}>
+                <p style={{ color: "#2D2D2D" }} className="flex-1">
                   Analiza contratos y documentos en{" "}
                   <strong>5 minutos</strong>, no en 2 horas.
                 </p>
+                <a
+                  href={whatsappDocReview}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center text-sm font-semibold transition-colors group"
+                  style={{ color: "#6C63FF" }}
+                >
+                  Quiero este para mi empresa
+                  <span className="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+                </a>
               </div>
             </div>
+
+            {/* Escape line */}
+            <p className="text-center mt-10 text-gray-500">
+              ¿Tu caso no está aquí?{" "}
+              <a
+                href={whatsappCustom}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold hover:underline"
+                style={{ color: "#00D9A6" }}
+              >
+                Cuéntanos tu proceso →
+              </a>
+            </p>
           </div>
         </section>
 
         {/* ── CÓMO FUNCIONA ── */}
         <section
+          id="proceso"
           style={{ backgroundColor: "#1A1A2E" }}
           className="px-6 py-20"
         >
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-white text-3xl md:text-4xl font-bold text-center mb-14">
-              Cómo funciona
+            <h2 className="text-white text-3xl md:text-4xl font-bold text-center mb-4">
+              De cero a resultados en 2–4 semanas
             </h2>
+            <p className="text-gray-400 text-center mb-14 max-w-xl mx-auto">
+              Tres pasos. Sin fricción técnica de tu parte.
+            </p>
 
             <div className="grid md:grid-cols-3 gap-10 text-center">
-              {(
-                [
-                  {
-                    step: "01",
-                    title: "Analizamos",
-                    desc: "Analizamos tu operación e identificamos qué automatizar con mayor impacto.",
-                  },
-                  {
-                    step: "02",
-                    title: "Diseñamos",
-                    desc: "Diseñamos un agente de IA personalizado para tu flujo de trabajo específico.",
-                  },
-                  {
-                    step: "03",
-                    title: "Implementamos",
-                    desc: "Implementamos en 2–4 semanas con KPIs claros y métricas de éxito definidas.",
-                  },
-                ] as const
-              ).map(({ step, title, desc }) => (
-                <div key={step}>
-                  <p
-                    style={{ color: "#6C63FF" }}
-                    className="text-5xl font-extrabold mb-4 opacity-40"
-                  >
-                    {step}
-                  </p>
-                  <h3 className="text-white text-xl font-bold mb-3">{title}</h3>
-                  <p className="text-gray-400">{desc}</p>
-                </div>
+              {steps.map(({ step, title, desc }, index) => (
+                <AnimatedStep
+                  key={step}
+                  step={step}
+                  title={title}
+                  desc={desc}
+                  index={index}
+                />
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* ── PRECIOS ── */}
-        <section id="precios" style={{ backgroundColor: "#F8F9FA" }} className="px-6 py-20">
-          <div className="max-w-5xl mx-auto">
-            <h2
-              style={{ color: "#1A1A2E" }}
-              className="text-3xl md:text-4xl font-bold text-center mb-4"
-            >
-              Precios
-            </h2>
-            <p className="text-center text-gray-500 mb-4 max-w-xl mx-auto">
-              Inversión única de implementación + retainer mensual obligatorio.
-            </p>
-            <p className="text-center text-sm mb-14 max-w-xl mx-auto" style={{ color: "#6C63FF" }}>
-              ⚡ El retainer mensual es obligatorio en todos los paquetes — incluye actualizaciones, mejoras, soporte y mantenimiento continuo.
-            </p>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {plans.map((plan) => (
-                <div
-                  key={plan.name}
-                  className={`rounded-2xl p-8 border flex flex-col ${
-                    plan.highlight
-                      ? "border-[#6C63FF] bg-[#1A1A2E] shadow-xl scale-105"
-                      : "border-gray-200 bg-white shadow-sm"
-                  }`}
-                >
-                  {plan.highlight && (
-                    <p
-                      style={{ backgroundColor: "#6C63FF" }}
-                      className="text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full text-center mb-4 self-start"
-                    >
-                      Más popular
-                    </p>
-                  )}
-                  <h3
-                    className={`text-2xl font-bold mb-6 ${plan.highlight ? "text-white" : ""}`}
-                    style={plan.highlight ? {} : { color: "#1A1A2E" }}
-                  >
-                    {plan.name}
-                  </h3>
-
-                  {/* Implementation fee */}
-                  <div className={`mb-6 pb-6 border-b ${plan.highlight ? "border-white/10" : "border-gray-100"}`}>
-                    <p className={`text-xs font-semibold uppercase tracking-widest mb-2 ${plan.highlight ? "text-gray-400" : "text-gray-500"}`}>
-                      Implementación
-                    </p>
-                    <p className={`text-4xl font-extrabold ${plan.highlight ? "text-white" : ""}`} style={plan.highlight ? {} : { color: "#1A1A2E" }}>
-                      {plan.implUsd}
-                      <span className={`text-base font-semibold ${plan.highlight ? "text-gray-400" : "text-gray-400"}`}> USD</span>
-                    </p>
-                    <p className={`text-sm mt-1 ${plan.highlight ? "text-gray-400" : "text-gray-500"}`}>
-                      {plan.implCop} COP
-                    </p>
-                  </div>
-
-                  {/* Monthly retainer */}
-                  <div className="mb-6">
-                    <p className={`text-xs font-semibold uppercase tracking-widest mb-2 ${plan.highlight ? "text-[#00D9A6]" : ""}`} style={plan.highlight ? {} : { color: "#6C63FF" }}>
-                      Retainer mensual (obligatorio)
-                    </p>
-                    <p className={`text-3xl font-extrabold ${plan.highlight ? "text-white" : ""}`} style={plan.highlight ? {} : { color: "#1A1A2E" }}>
-                      {plan.retainerUsd}
-                      <span className={`text-sm font-semibold ${plan.highlight ? "text-gray-400" : "text-gray-400"}`}> USD</span>
-                    </p>
-                    <p className={`text-sm mt-1 ${plan.highlight ? "text-gray-400" : "text-gray-500"}`}>
-                      {plan.retainerCop} COP
-                    </p>
-                  </div>
-
-                  {/* Retainer includes */}
-                  <ul className="space-y-2 flex-1">
-                    {plan.retainerIncludes.map((item) => (
-                      <li key={item} className={`flex items-start gap-2 text-sm ${plan.highlight ? "text-gray-300" : "text-gray-600"}`}>
-                        <span style={{ color: plan.highlight ? "#00D9A6" : "#6C63FF" }} className="mt-0.5 shrink-0">✓</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <a
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`mt-8 block text-center font-semibold px-6 py-3 rounded-xl transition-all duration-150 hover:opacity-90 active:scale-95 ${
-                      plan.highlight
-                        ? "bg-[#6C63FF] text-white"
-                        : "bg-[#EEF0FF] text-[#6C63FF]"
-                    }`}
-                  >
-                    Empezar →
-                  </a>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-center text-gray-500 text-sm mt-10">
-              Precios en USD y COP (TRM referencia). · Implementación única + retainer mensual recurrente. · Proyectos personalizados disponibles.
-            </p>
           </div>
         </section>
 
         {/* ── QUIÉNES SOMOS ── */}
-        <section style={{ backgroundColor: "#1A1A2E" }} className="px-6 py-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2
-              className="text-white text-3xl md:text-4xl font-bold mb-6"
-            >
-              Quiénes somos
-            </h2>
-            <p style={{ color: "#D1D5DB" }} className="text-lg leading-relaxed mb-6">
-              Somos un equipo de ingenieros y estrategas de IA con sede en{" "}
-              <strong>Pereira, Risaralda, Colombia</strong>. Creamos Vektora
-              para acercar la inteligencia artificial a las empresas
-              latinoamericanas que quieren crecer sin contratar más personal.
-            </p>
-            <p className="text-gray-500 text-base leading-relaxed">
-              Nuestros agentes trabajan 24/7 en WhatsApp, email y sistemas
-              internos. Hemos ayudado a empresas en Colombia, México y Chile a
-              reducir tiempos de respuesta, aumentar conversiones y liberar a sus
-              equipos para enfocarse en lo que realmente importa.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm">
-              <div className="flex flex-col items-center">
-                <span style={{ color: "#6C63FF" }} className="text-3xl font-bold">30</span>
-                <span className="text-gray-500">días a resultados</span>
+        <section id="quienes-somos" style={{ backgroundColor: "#F8F9FA" }} className="px-6 py-20">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              {/* Left column: text */}
+              <div>
+                <p
+                  className="text-sm font-semibold uppercase tracking-widest mb-3"
+                  style={{ color: "#6C63FF" }}
+                >
+                  Quiénes somos
+                </p>
+                <h2
+                  style={{ color: "#1A1A2E" }}
+                  className="text-3xl md:text-4xl font-bold mb-6"
+                >
+                  Ingenieros que entienden tu negocio
+                </h2>
+                <p style={{ color: "#2D2D2D" }} className="leading-relaxed mb-4">
+                  Somos un equipo de ingenieros y estrategas de IA con sede en{" "}
+                  <strong>Pereira, Risaralda, Colombia</strong>. Fundamos Vektora
+                  para que las empresas latinoamericanas accedan a automatización
+                  real — no demos, no promesas: agentes que trabajan desde el día uno.
+                </p>
+                <p style={{ color: "#2D2D2D" }} className="leading-relaxed">
+                  Nuestros agentes operan 24/7 en WhatsApp, email y sistemas
+                  internos. Hemos implementado soluciones en más de 15 empresas
+                  en Colombia, México y Chile, reduciendo tiempos de respuesta en
+                  un 70% promedio.
+                </p>
               </div>
-              <div className="flex flex-col items-center">
-                <span style={{ color: "#00D9A6" }} className="text-3xl font-bold">70%</span>
-                <span className="text-gray-500">consultas automatizadas</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span style={{ color: "#6C63FF" }} className="text-3xl font-bold">2–4</span>
-                <span className="text-gray-500">semanas de implementación</span>
+
+              {/* Right column: stats */}
+              <div className="grid grid-cols-3 gap-6 text-center">
+                <div>
+                  <p className="text-5xl font-extrabold" style={{ color: "#6C63FF" }}>
+                    30
+                  </p>
+                  <p className="text-sm text-gray-500 mt-1">días a primeros resultados</p>
+                </div>
+                <div>
+                  <p className="text-5xl font-extrabold" style={{ color: "#6C63FF" }}>
+                    70%
+                  </p>
+                  <p className="text-sm text-gray-500 mt-1">consultas automatizadas</p>
+                </div>
+                <div>
+                  <p className="text-5xl font-extrabold" style={{ color: "#6C63FF" }}>
+                    15+
+                  </p>
+                  <p className="text-sm text-gray-500 mt-1">empresas en LATAM</p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* ── FAQ ── */}
-        <section style={{ backgroundColor: "#F8F9FA" }} className="px-6 py-20">
+        <section id="faq" style={{ backgroundColor: "#1A1A2E" }} className="px-6 py-20">
           <div className="max-w-3xl mx-auto">
-            <h2 style={{ color: "#1A1A2E" }} className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="text-white text-3xl md:text-4xl font-bold text-center mb-12">
               Preguntas frecuentes
             </h2>
             <div className="space-y-4">
-              {faqs.map(({ q, a }, i) => (
+              {faqs.map(({ q, a, cta }, i) => (
                 <details
                   key={i}
-                  className="rounded-xl border border-gray-200 bg-white group"
+                  className="rounded-xl border border-white/10 bg-white/5 group"
                 >
-                  <summary className="flex items-center justify-between gap-4 px-6 py-5 font-semibold select-none cursor-pointer" style={{ color: "#1A1A2E" }}>
+                  <summary className="flex items-center justify-between gap-4 px-6 py-5 text-white font-semibold select-none">
                     <span>{q}</span>
                     <span
                       style={{ color: "#6C63FF" }}
@@ -571,7 +493,20 @@ export default function Home() {
                       +
                     </span>
                   </summary>
-                  <p className="px-6 pb-5 text-gray-600 leading-relaxed">{a}</p>
+                  <div className="px-6 pb-5">
+                    <p className="text-gray-300 leading-relaxed">{a}</p>
+                    {cta && (
+                      <a
+                        href={whatsappPresupuesto}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center mt-3 text-sm font-semibold hover:underline"
+                        style={{ color: "#00D9A6" }}
+                      >
+                        Agenda una llamada para tu presupuesto exacto →
+                      </a>
+                    )}
+                  </div>
                 </details>
               ))}
             </div>
@@ -601,71 +536,6 @@ export default function Home() {
           </a>
         </section>
 
-        {/* ── FOOTER ── */}
-        <footer style={{ backgroundColor: "#1A1A2E" }} className="px-6 py-10">
-          <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <Image
-                src="/logo.svg"
-                alt="Vektora - AI Agents Studio"
-                width={200}
-                height={63}
-                style={{ width: "200px", height: "auto" }}
-                className="mb-2"
-              />
-              <address className="text-gray-500 text-xs not-italic">
-                Pereira, Risaralda, Colombia
-              </address>
-            </div>
-
-            <div className="flex items-center gap-6">
-              <a
-                href="https://linkedin.com/company/vektora"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors text-sm"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://instagram.com/vektora.lat"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors text-sm"
-              >
-                Instagram
-              </a>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors text-sm"
-              >
-                WhatsApp
-              </a>
-            </div>
-
-            <div className="text-right">
-              <a
-                href="mailto:info@vektora.lat"
-                className="text-gray-400 hover:text-white transition-colors text-sm block"
-              >
-                info@vektora.lat
-              </a>
-              <a
-                href="tel:+573105975861"
-                className="text-gray-400 hover:text-white transition-colors text-sm block mt-1"
-              >
-                +57 310 597 5861
-              </a>
-            </div>
-          </div>
-
-          <p className="text-center text-gray-600 text-xs mt-8">
-            © {new Date().getFullYear()} Vektora. Todos los derechos reservados. · Pereira, Colombia
-          </p>
-        </footer>
-      </main>
     </>
   );
 }
