@@ -13,9 +13,9 @@ export function Footer() {
             <Image
               src="/logo-vektora.png"
               alt="Vektora — AI Agents Studio"
-              width={120}
-              height={34}
-              className="h-8 w-auto"
+              width={160}
+              height={50}
+              className="h-10 w-auto"
             />
           </Link>
           <address className="text-gray-500 text-xs not-italic">

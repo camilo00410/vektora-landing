@@ -27,13 +27,23 @@ export function Navbar() {
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center">
+          {/* Desktop: horizontal wordmark */}
           <Image
             src="/logo-vektora.png"
             alt="Vektora — AI Agents Studio"
-            width={140}
-            height={40}
+            width={192}
+            height={60}
             priority
-            className="h-9 w-auto"
+            className="hidden md:block h-12 w-auto"
+          />
+          {/* Mobile: icon only */}
+          <Image
+            src="/icon-vektora.png"
+            alt="Vektora"
+            width={48}
+            height={48}
+            priority
+            className="block md:hidden h-10 w-auto"
           />
         </Link>
 
