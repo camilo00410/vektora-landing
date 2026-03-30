@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://vektora.lat"),
   title: "Agencia de Inteligencia Artificial B2B en Colombia | Vektora",
   description:
-    "Automatiza tu empresa con agentes de IA a medida. Vektora es la agencia de IA B2B en Colombia que ayuda a empresas a crecer con chatbots, automatización de procesos y soluciones personalizadas. Agenda una demo.",
+    "Vektora: agencia de IA B2B para empresas latinoamericanas. Automatiza procesos con agentes de IA integrados con WhatsApp, HubSpot, Shopify y más. Desde Colombia para LATAM.",
   keywords: [
     "agencia inteligencia artificial Colombia",
     "agencia IA B2B Colombia",

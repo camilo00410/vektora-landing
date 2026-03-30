@@ -26,27 +26,31 @@ export function Navbar() {
       className="sticky top-0 z-50 px-6 py-4"
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center">
-          {/* Desktop: horizontal wordmark — 240px wide for strong presence */}
+        <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/logo-vektora.png"
-            alt="Vektora — AI Agents Studio"
-            width={240}
-            height={75}
+            src="/logo/vektora-icon.png"
+            alt="Vektora"
+            width={48}
+            height={48}
             priority
             className="hidden md:block"
-            style={{ width: "240px", height: "auto" }}
+            style={{ width: "48px", height: "48px" }}
           />
-          {/* Mobile: icon only — 52px */}
           <Image
-            src="/icon-vektora.png"
+            src="/logo/vektora-icon.png"
             alt="Vektora"
-            width={52}
-            height={52}
+            width={40}
+            height={40}
             priority
             className="block md:hidden"
-            style={{ width: "52px", height: "52px" }}
+            style={{ width: "40px", height: "40px" }}
           />
+          <span
+            className="hidden md:block font-bold tracking-widest uppercase text-white"
+            style={{ fontSize: "1.25rem", letterSpacing: "0.08em" }}
+          >
+            VEKTORA
+          </span>
         </Link>
 
         {/* Desktop nav */}
