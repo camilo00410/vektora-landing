@@ -1,4 +1,5 @@
 import Script from "next/script";
+import Link from "next/link";
 import { AnimatedStep } from "./components/AnimatedStep";
 
 const whatsappUrl =
@@ -226,37 +227,6 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-
-      <main>
-        {/* ── NAV ── */}
-        <nav
-          style={{ backgroundColor: "#1A1A2E" }}
-          className="sticky top-0 z-50 px-6 py-4 flex items-center justify-between"
-        >
-          <span className="text-white text-xl font-bold tracking-tight">
-            <span style={{ color: "#6C63FF" }}>vek</span>tora
-          </span>
-          <div className="hidden md:flex items-center gap-6">
-            <a href="#servicios" className="text-sm text-gray-300 hover:text-white transition-colors">
-              Servicios
-            </a>
-            <a href="#proceso" className="text-sm text-gray-300 hover:text-white transition-colors">
-              Proceso
-            </a>
-            <a href="#faq" className="text-sm text-gray-300 hover:text-white transition-colors">
-              FAQ
-            </a>
-          </div>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ backgroundColor: "#6C63FF" }}
-            className="text-white text-sm font-semibold px-4 py-2 rounded-lg hover:opacity-90 active:scale-95 transition-all duration-150"
-          >
-            Agenda demo →
-          </a>
-        </nav>
 
         {/* ── HERO ── */}
         <section
@@ -566,69 +536,6 @@ export default function Home() {
           </a>
         </section>
 
-        {/* ── FOOTER ── */}
-        <footer style={{ backgroundColor: "#1A1A2E" }} className="px-6 py-10">
-          <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <span className="text-white text-lg font-bold block mb-1">
-                <span style={{ color: "#6C63FF" }}>vek</span>tora
-              </span>
-              <address className="text-gray-500 text-xs not-italic">
-                Pereira, Risaralda, Colombia
-              </address>
-              <p className="text-gray-600 text-xs mt-1">
-                Empresa de automatización con IA en Pereira — atendemos toda Colombia, México y Chile
-              </p>
-            </div>
-
-            <div className="flex items-center gap-6">
-              <a
-                href="https://linkedin.com/company/vektora"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors text-sm py-2 px-1 min-h-[44px] inline-flex items-center"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="https://instagram.com/vektora.lat"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors text-sm py-2 px-1 min-h-[44px] inline-flex items-center"
-              >
-                Instagram
-              </a>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors text-sm py-2 px-1 min-h-[44px] inline-flex items-center"
-              >
-                WhatsApp
-              </a>
-            </div>
-
-            <div className="text-right">
-              <a
-                href="mailto:info@vektora.lat"
-                className="text-gray-400 hover:text-white transition-colors text-sm block py-1 min-h-[44px] inline-flex items-center"
-              >
-                info@vektora.lat
-              </a>
-              <a
-                href="tel:+573105975861"
-                className="text-gray-400 hover:text-white transition-colors text-sm block mt-1"
-              >
-                +57 310 597 5861
-              </a>
-            </div>
-          </div>
-
-          <p className="text-center text-gray-600 text-xs mt-8">
-            © {new Date().getFullYear()} Vektora. Todos los derechos reservados. · Pereira, Colombia
-          </p>
-        </footer>
-      </main>
     </>
   );
 }
