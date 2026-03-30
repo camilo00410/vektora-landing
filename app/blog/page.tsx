@@ -4,16 +4,25 @@ import { Breadcrumbs } from "../components/Breadcrumbs";
 import { blogPosts } from "./posts";
 
 export const metadata: Metadata = {
-  title: "Blog | Vektora — Automatización con IA para Empresas",
+  title: "Blog sobre IA para Empresas en Colombia y LATAM | Vektora",
   description:
-    "Artículos sobre automatización con IA, agentes de IA, estrategia empresarial y casos de uso para empresas en Colombia y LATAM.",
+    "Artículos prácticos sobre inteligencia artificial para empresas: guías, casos de uso y tendencias IA en Colombia, México y Chile. Para líderes empresariales B2B.",
   alternates: { canonical: "https://vektora.lat/blog" },
   openGraph: {
-    title: "Blog | Vektora",
+    title: "Blog sobre IA para Empresas en Colombia y LATAM | Vektora",
     description:
-      "Artículos sobre automatización con IA para empresas en Colombia y LATAM.",
+      "Artículos prácticos sobre inteligencia artificial para empresas: guías, casos de uso y tendencias IA en Colombia, México y Chile.",
     url: "https://vektora.lat/blog",
   },
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vektora.lat" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://vektora.lat/blog" }
+  ]
 };
 
 function formatDate(dateStr: string) {
@@ -27,6 +36,11 @@ function formatDate(dateStr: string) {
 export default function BlogPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <Breadcrumbs items={[{ label: "Blog" }]} />
 
       {/* Hero */}
@@ -35,7 +49,7 @@ export default function BlogPage() {
           Blog
         </p>
         <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight mb-6 max-w-3xl mx-auto">
-          Recursos sobre IA para empresas en LATAM
+          Blog — Inteligencia Artificial para Empresas
         </h1>
         <p className="text-gray-300 text-lg max-w-2xl mx-auto">
           Artículos prácticos sobre automatización, agentes de IA y estrategia para empresas colombianas.
