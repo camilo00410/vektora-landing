@@ -59,6 +59,9 @@ export const metadata: Metadata = {
       "Automatizamos procesos de negocio con agentes de IA. Pereira, Colombia.",
     images: ["/og-image.png"],
   },
+  verification: {
+    google: "QRRcsHgTL95yl4uWFyvoNU34-GPNbxSbznDRuOSa2DQ",
+  },
   robots: {
     index: true,
     follow: true,
