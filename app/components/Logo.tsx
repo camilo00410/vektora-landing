@@ -8,7 +8,7 @@ export function Logo({ height = 40, className = "" }: { height?: number; classNa
   const subtitleSize = Math.round(height * 0.13);
 
   return (
-    <span className={`inline-flex items-center gap-2 ${className}`} style={{ height }}>
+    <span className={className} style={{ display: "inline-flex", alignItems: "center", gap: 8, height }}>
       <Image
         src="/logo/vektora-icon-cropped.png"
         alt=""
