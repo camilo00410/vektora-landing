@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { Logo } from "./Logo";
 
 const whatsappUrl =
   "https://wa.me/573105975861?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20Vektora";
@@ -10,14 +10,7 @@ export function Footer() {
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start justify-between gap-8">
         <div>
           <Link href="/" className="flex items-center mb-1">
-            <Image
-              src="/logo/vektora-full.png"
-              alt="Vektora - AI Agents Studio"
-              width={179}
-              height={56}
-              className="h-14 w-auto"
-              style={{ height: "56px", width: "auto" }}
-            />
+            <Logo height={56} />
           </Link>
           <address className="text-gray-500 text-xs not-italic">
             Pereira, Risaralda, Colombia

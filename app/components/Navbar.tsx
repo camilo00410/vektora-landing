@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { Logo } from "./Logo";
 
 const whatsappUrl =
   "https://wa.me/573105975861?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20Vektora";
@@ -27,26 +27,8 @@ export function Navbar() {
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center">
-          {/* Desktop logo: 48px tall, auto width */}
-          <Image
-            src="/logo/vektora-full.png"
-            alt="Vektora - AI Agents Studio"
-            width={154}
-            height={48}
-            priority
-            className="hidden md:block h-12 w-auto"
-            style={{ height: "48px", width: "auto" }}
-          />
-          {/* Mobile logo: 36px tall, auto width */}
-          <Image
-            src="/logo/vektora-full.png"
-            alt="Vektora - AI Agents Studio"
-            width={115}
-            height={36}
-            priority
-            className="block md:hidden h-9 w-auto"
-            style={{ height: "36px", width: "auto" }}
-          />
+          <Logo height={48} className="hidden md:block" />
+          <Logo height={36} className="block md:hidden" />
         </Link>
 
         {/* Desktop nav */}
