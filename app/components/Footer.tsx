@@ -9,20 +9,15 @@ export function Footer() {
     <footer style={{ backgroundColor: "#1A1A2E" }} className="px-6 py-10">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start justify-between gap-8">
         <div>
-          <Link href="/" className="flex items-center gap-3 mb-1">
+          <Link href="/" className="flex items-center mb-1">
             <Image
-              src="/logo/vektora-icon.png"
-              alt="Vektora"
-              width={64}
-              height={64}
-              style={{ width: "64px", height: "64px" }}
+              src="/logo/vektora-full.png"
+              alt="Vektora - AI Agents Studio"
+              width={179}
+              height={56}
+              className="h-14 w-auto"
+              style={{ height: "56px", width: "auto" }}
             />
-            <span
-              className="font-bold uppercase text-white"
-              style={{ fontSize: "1.4rem", letterSpacing: "0.1em" }}
-            >
-              VEKTORA
-            </span>
           </Link>
           <address className="text-gray-500 text-xs not-italic">
             Pereira, Risaralda, Colombia
