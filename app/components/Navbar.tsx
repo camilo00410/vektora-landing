@@ -27,8 +27,8 @@ export function Navbar() {
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center">
-          <Logo height={48} className="hidden md:block" />
-          <Logo height={36} className="block md:hidden" />
+          <span className="hidden md:inline-flex"><Logo height={48} /></span>
+          <span className="inline-flex md:hidden"><Logo height={36} /></span>
         </Link>
 
         {/* Desktop nav */}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export function Logo({ height = 40, className = "" }: { height?: number; className?: string }) {
+export function Logo({ height = 40 }: { height?: number }) {
   // Icon aspect ratio is ~540:662 (0.816:1), so width = height * 0.82
   const iconH = height;
   const iconW = Math.round(height * 0.82);
@@ -8,7 +8,7 @@ export function Logo({ height = 40, className = "" }: { height?: number; classNa
   const subtitleSize = Math.round(height * 0.13);
 
   return (
-    <span className={className} style={{ display: "inline-flex", alignItems: "center", gap: 8, height }}>
+    <span style={{ display: "inline-flex", alignItems: "center", gap: 8, height }}>
       <Image
         src="/logo/vektora-icon-cropped.png"
         alt=""
