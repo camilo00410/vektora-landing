@@ -1,21 +1,23 @@
 import Image from "next/image";
 
 export function Logo({ height = 40, className = "" }: { height?: number; className?: string }) {
-  const iconSize = Math.round(height * 0.85);
-  const titleSize = Math.round(height * 0.38);
-  const subtitleSize = Math.round(height * 0.14);
+  // Icon aspect ratio is ~540:662 (0.816:1), so width = height * 0.82
+  const iconH = height;
+  const iconW = Math.round(height * 0.82);
+  const titleSize = Math.round(height * 0.35);
+  const subtitleSize = Math.round(height * 0.13);
 
   return (
     <span className={`inline-flex items-center gap-2 ${className}`} style={{ height }}>
       <Image
-        src="/logo/vektora-icon.png"
+        src="/logo/vektora-icon-cropped.png"
         alt=""
-        width={iconSize}
-        height={iconSize}
+        width={iconW}
+        height={iconH}
         priority
-        style={{ width: iconSize, height: iconSize }}
+        style={{ width: iconW, height: iconH }}
       />
-      <span className="flex flex-col justify-center" style={{ lineHeight: 1.1 }}>
+      <span className="flex flex-col justify-center" style={{ lineHeight: 1.15 }}>
         <span
           style={{
             fontSize: titleSize,
