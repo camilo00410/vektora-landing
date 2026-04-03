@@ -252,7 +252,7 @@ const jsonLd = {
     {
       "@type": "Person",
       "@id": "https://vektora.lat/#founder",
-      name: "[Founder Name]",
+      name: "Camilo Loaiza",
       jobTitle: "Fundador y CEO de Vektora",
       worksFor: { "@id": "https://vektora.lat/#organization" },
       description:
@@ -870,26 +870,23 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal delay={1}>
             <div className="flex flex-col items-center gap-6">
-              {/* Avatar placeholder */}
-              <div
-                className="w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl font-bold shrink-0"
+              <Image
+                src="/camilo-loaiza.jpg"
+                alt="Camilo Loaiza — Fundador y CEO de Vektora"
+                width={96}
+                height={96}
+                className="w-24 h-24 rounded-full object-cover shrink-0"
                 style={{
                   border: "3px solid #6C63FF",
                   boxShadow: "0 0 32px rgba(108,99,255,0.25)",
-                  background: "linear-gradient(135deg, #252540, #2D2D2D)",
                 }}
-                aria-label="Foto del fundador (placeholder)"
-              >
-                {/* Board: replace with <Image> of real founder photo */}
-                VK
-              </div>
+              />
               <div>
                 <h3
                   className="text-xl font-bold mb-1"
                   style={{ color: "#F8F9FA" }}
                 >
-                  {/* Board: replace with real founder name */}
-                  [Founder Name]
+                  Camilo Loaiza
                 </h3>
                 <p
                   className="text-sm font-medium mb-4"
