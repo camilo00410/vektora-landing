@@ -12,6 +12,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vektora.lat"),
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   title: "Agencia de Inteligencia Artificial B2B en Colombia | Vektora",
   description:
     "Vektora: agencia de IA B2B para empresas latinoamericanas. Automatiza procesos con agentes de IA integrados con WhatsApp, HubSpot, Shopify y más. Desde Colombia para LATAM.",
