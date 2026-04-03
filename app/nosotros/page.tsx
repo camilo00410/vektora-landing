@@ -11,6 +11,17 @@ export const metadata: Metadata = {
     description:
       "Somos Vektora, la agencia de inteligencia artificial en Pereira, Colombia. Especializados en agentes IA y automatización B2B para empresas latinoamericanas.",
     url: "https://vektora.lat/nosotros",
+    type: "website",
+    locale: "es_CO",
+    siteName: "Vektora",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Quiénes Somos — Agencia de IA B2B en Pereira, Colombia | Vektora",
+    description:
+      "Somos Vektora, la agencia de inteligencia artificial en Pereira, Colombia. Especializados en agentes IA y automatización B2B para empresas latinoamericanas.",
+    images: ["/og-image.png"],
   },
 };
 

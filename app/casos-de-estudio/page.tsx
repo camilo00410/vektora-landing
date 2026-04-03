@@ -7,6 +7,23 @@ export const metadata: Metadata = {
   description:
     "Casos de estudio de automatización con IA en empresas colombianas. Próximamente: resultados reales de LeadBot, ShopAssist y DocReview en producción.",
   alternates: { canonical: "https://vektora.lat/casos-de-estudio" },
+  openGraph: {
+    title: "Casos de Estudio | Vektora — Automatización con IA en Colombia",
+    description:
+      "Casos de estudio de automatización con IA en empresas colombianas. Próximamente: resultados reales de LeadBot, ShopAssist y DocReview en producción.",
+    url: "https://vektora.lat/casos-de-estudio",
+    type: "website",
+    locale: "es_CO",
+    siteName: "Vektora",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Casos de Estudio | Vektora — Automatización con IA en Colombia",
+    description:
+      "Casos de estudio de automatización con IA en empresas colombianas. Próximamente: resultados reales de LeadBot, ShopAssist y DocReview en producción.",
+    images: ["/og-image.png"],
+  },
 };
 
 const whatsappUrl =

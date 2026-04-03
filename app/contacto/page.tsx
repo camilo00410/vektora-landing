@@ -11,6 +11,17 @@ export const metadata: Metadata = {
     description:
       "¿Listo para automatizar tu empresa con IA? Escríbenos o agenda una llamada con nuestro equipo. WhatsApp: +57 310 597 5861 | info@vektora.lat",
     url: "https://vektora.lat/contacto",
+    type: "website",
+    locale: "es_CO",
+    siteName: "Vektora",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contacto — Habla con Nuestros Especialistas en IA | Vektora",
+    description:
+      "¿Listo para automatizar tu empresa con IA? Escríbenos o agenda una llamada con nuestro equipo. WhatsApp: +57 310 597 5861 | info@vektora.lat",
+    images: ["/og-image.png"],
   },
 };
 

@@ -13,6 +13,17 @@ export const metadata: Metadata = {
     description:
       "Artículos prácticos sobre inteligencia artificial para empresas: guías, casos de uso y tendencias IA en Colombia, México y Chile.",
     url: "https://vektora.lat/blog",
+    type: "website",
+    locale: "es_CO",
+    siteName: "Vektora",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog sobre IA para Empresas en Colombia y LATAM | Vektora",
+    description:
+      "Artículos prácticos sobre inteligencia artificial para empresas: guías, casos de uso y tendencias IA en Colombia, México y Chile. Para líderes empresariales B2B.",
+    images: ["/og-image.png"],
   },
 };
 

@@ -11,7 +11,7 @@ export function Logo({ height = 40 }: { height?: number }) {
     <span style={{ display: "inline-flex", alignItems: "center", gap: 8, height }}>
       <Image
         src="/logo/vektora-icon-cropped.png"
-        alt=""
+        alt="Vektora logo"
         width={iconW}
         height={iconH}
         priority

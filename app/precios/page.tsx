@@ -11,6 +11,17 @@ export const metadata: Metadata = {
     description:
       "Proyectos de IA desde $3K hasta $15K y retainers mensuales desde $500. Conoce nuestros planes de automatización con inteligencia artificial para empresas colombianas.",
     url: "https://vektora.lat/precios",
+    type: "website",
+    locale: "es_CO",
+    siteName: "Vektora",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Planes y Precios — Agencia de IA para Empresas | Vektora",
+    description:
+      "Proyectos de IA desde $3K hasta $15K y retainers mensuales desde $500. Conoce nuestros planes de automatización con inteligencia artificial para empresas colombianas.",
+    images: ["/og-image.png"],
   },
 };
 

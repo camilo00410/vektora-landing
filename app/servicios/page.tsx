@@ -11,6 +11,17 @@ export const metadata: Metadata = {
     description:
       "Chatbots empresariales, agentes IA personalizados y automatización de procesos. Soluciones de inteligencia artificial B2B para empresas colombianas.",
     url: "https://vektora.lat/servicios",
+    type: "website",
+    locale: "es_CO",
+    siteName: "Vektora",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Servicios de Inteligencia Artificial para Empresas | Vektora",
+    description:
+      "Chatbots empresariales, agentes IA personalizados y automatización de procesos. Soluciones de inteligencia artificial B2B para empresas colombianas. Conoce cómo trabajamos.",
+    images: ["/og-image.png"],
   },
 };
 
